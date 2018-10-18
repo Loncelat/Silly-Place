@@ -1,0 +1,64 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{parskip}
+\usepackage[a4paper]{geometry}
+
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+\begin{document}
+
+\title{Silly Formulae}
+\author{Martijn Leus}
+\date{NULL}
+
+\maketitle
+
+\section{Patchwork}
+
+Let $a$ be the size (in pixels) of each patch, with $a\in\mathbb{N}\setminus\{0\}$.\\
+Let $b$ be the width of each line of the grid, with $b\in\mathbb{N}$.
+
+The leftmost pixel $p_l=L(n)$ of the $n^{th}$ patch is then given by
+$$L(n)=an + bn + b$$
+
+Similarly, the rightmost pixel  $p_r=R(n)$ of the $n^{th}$ patch is
+\begin{align*}
+	R(n) &= L(n) + a - 1 \\
+	&= an + bn + a + b - 1
+\end{align*}
+
+Formulae for the left- and rightmost pixels of the next patch can be derived from these formulae:
+\begin{align*}
+	L(n+1) &=a(n+1) + b(n+1) + b \\
+	&= an + bn + b + a + b \\
+	&= L(n) + a + b
+\end{align*}
+\begin{align*}
+	R(n+1) &=L(n+1) + a - 1 \\
+	&= L(n) + a + b + a - 1 \\
+	&= R(n) + a + b
+\end{align*}
+
+Clearly, the difference between the leftmost (and rightmost) pixels of two consecutive patches is always $a + b$.
+
+Assuming that values are always floored, the function $n=L^{-1}(p_l)$ is
+$$L^{-1}(p_l)={\frac{p_l-b}{a+b}}$$
+This also gives us a formula for the the patch which the next leftmost pixel of a patch belongs to:
+$$L^{-1}(p_l + (a + b))=\frac{p_l-b+(a+b)}{a+b}=\frac{p_l-b}{a+b}+\frac{a+b}{a+b}=\frac{p_l-b}{a+b}+1$$
+
+Lastly, if we want to know if an arbitrary pixel $p$ is actually part of a patch, and thus not on a grid line, we need to evaluate
+$$p\>\mathrm{mod}\>(a + b) > b$$
+
+\section{$ln$tegrals}
+$$\int ln^n(x)=
+\begin{cases}
+x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...+n!\cdot ln(x)-n!) & \text{if } n=even \\ 
+x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...-n!\cdot ln(x)+n!) & \text{if } n=odd
+\end{cases}$$
+
+$$\int ln^n(x)=xn!\sum_{k=0}^{n}\frac{(-1)^{n-k}ln(x)^k}{k!}$$
+
+
+\end{document}
