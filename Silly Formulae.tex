@@ -6,6 +6,7 @@
 \usepackage[a4paper]{geometry}
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\dif}[1]{\,\mathrm{d}#1}
 
 \begin{document}
 
@@ -49,16 +50,16 @@ This also gives us a formula for the the patch which the next leftmost pixel of 
 $$L^{-1}(p_l + (a + b))=\frac{p_l-b+(a+b)}{a+b}=\frac{p_l-b}{a+b}+\frac{a+b}{a+b}=\frac{p_l-b}{a+b}+1$$
 
 Lastly, if we want to know if an arbitrary pixel $p$ is actually part of a patch, and thus not on a grid line, we need to evaluate
-$$p\>\mathrm{mod}\>(a + b) > b$$
+$$p\,\mathrm{mod}\,(a + b) > b$$
 
 \section{$ln$tegrals}
-$$\int ln^n(x)=
+$$\int ln^n(x)\dif{x}=
 \begin{cases}
-x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...+n!\cdot ln(x)-n!) & \text{if } n=even \\ 
-x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...-n!\cdot ln(x)+n!) & \text{if } n=odd
+x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...+n!\cdot ln(x)-n!)+C & \text{if } n=even \\ 
+x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...-n!\cdot ln(x)+n!)+C & \text{if } n=odd
 \end{cases}$$
 
-$$\int ln^n(x)=xn!\sum_{k=0}^{n}\frac{(-1)^{n-k}ln(x)^k}{k!}$$
+$$\int ln^n(x)\dif{x}=xn!\sum_{k=0}^{n}\frac{(-1)^{n-k}ln(x)^k}{k!}+C$$
 
 
 \end{document}
