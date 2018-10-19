@@ -1,3 +1,4 @@
+\pdfcompresslevel=0
 \documentclass{article}
 
 \usepackage{amsmath}
@@ -49,8 +50,8 @@ $$L^{-1}(p_l)={\frac{p_l-b}{a+b}}$$
 This also gives us a formula for the the patch which the next leftmost pixel of a patch belongs to:
 $$L^{-1}(p_l + (a + b))=\frac{p_l-b+(a+b)}{a+b}=\frac{p_l-b}{a+b}+\frac{a+b}{a+b}=\frac{p_l-b}{a+b}+1$$
 
-Lastly, if we want to know if an arbitrary pixel $p$ is actually part of a patch, and thus not on a grid line, we need to evaluate
-$$p\,\mathrm{mod}\,(a + b) > b$$
+Lastly, if we want to know if an arbitrary pixel $p$ is actually part of a patch, we need to evaluate
+$$p\,\mathrm{mod}\,(a + b) > b \vee b = 0$$
 
 \section{$ln$tegrals}
 $$\int ln^n(x)\dif{x}=
