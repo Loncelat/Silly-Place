@@ -60,14 +60,14 @@ To do this, we evaluate $s> b-1$\footnote[2]{$s < 0$ isn't evaluated because $s$
 This is equivalent to $s\geq b$.
 Filling in the previously defined formula for $s$, we arrive at $$p\Mod(a + b) \geq b$$
 
-\section{$ln$tegrals}
-$$\int ln^n(x)\dif{x}=
+\section{$\ln$tegrals}
+$$\int \ln^n(x)\dif{x}=
 \begin{cases}
-x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...+n!\cdot ln(x)-n!)+C & \text{if } n=even \\ 
-x(ln^n(x)-\frac{n!}{(n-1)!}ln^{n-1}+\frac{n!}{(n-2)!}ln^{n-2}-...-n!\cdot ln(x)+n!)+C & \text{if } n=odd
+x(\ln^n(x)-\frac{n!}{(n-1)!}\ln^{n-1}(x)+\frac{n!}{(n-2)!}\ln^{n-2}(x)-...+n!\cdot \ln(x)-n!)+C & \text{if } n=even \\ 
+x(\ln^n(x)-\frac{n!}{(n-1)!}\ln^{n-1}(x)+\frac{n!}{(n-2)!}\ln^{n-2}(x)-...-n!\cdot \ln(x)+n!)+C & \text{if } n=odd
 \end{cases}$$
 
-$$\int ln^n(x)\dif{x}=xn!\sum_{k=0}^{n}\frac{(-1)^{n-k}ln(x)^k}{k!}+C$$
+$$\int \ln^n(x)\dif{x}=xn!\sum_{k=0}^{n}\frac{(-1)^{n-k}\ln^k(x)}{k!}+C$$
 
 
 \end{document}
