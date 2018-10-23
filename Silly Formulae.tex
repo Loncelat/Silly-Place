@@ -9,7 +9,7 @@
 
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\dif}[1]{\,\mathrm{d}#1}
-\newcommand{\intervaloo}[2]{\left[#1, #2\right]}
+\newcommand{\natInterval}[2]{\left[#1\;..\;#2\right]}
 \newcommand{\Mod}{\,\mathrm{mod}\,}
 
 \begin{document}
@@ -53,9 +53,9 @@ $$L^{-1}(p_l)={\frac{p_l-b}{a+b}}$$
 This also gives us a formula for the the patch which the next leftmost pixel of a patch belongs to:
 $$L^{-1}(p_l + (a + b))=\frac{p_l-b+(a+b)}{a+b}=\frac{p_l-b}{a+b}+\frac{a+b}{a+b}=\frac{p_l-b}{a+b}+1$$
 
-Say, we want to know if a given pixel is part of a patch, and not of a border. The first step in doing this is figuring out at which offset $s$ from the start of the border-patch pair the pixel is. This can be calculated by $s=p\Mod(a + b)$. This function maps $p$ onto the closed interval $\intervaloo{0}{a+b-1}$.
+Say, we want to know if a given pixel is part of a patch, and not of a border. The first step in doing this is figuring out at which offset $s$ from the start of the border-patch pair the pixel is. This can be calculated by $s=p\Mod(a + b)$. This function maps $p$ onto the interval $\natInterval{0}{a+b-1}$.
 
-Notice that the first $b$ items in this interval belong to a border, thus the border is the closed interval $\intervaloo{0}{b-1}$. In order to find out if $p$ maps onto a patch, we then need to check if $s$ falls outside of this interval. 
+Notice that the first $b$ items in this interval belong to a border, thus the border is the interval $\natInterval{0}{b-1}$. In order to find out if $p$ maps onto a patch, we then need to check if $s$ falls outside of this interval. 
 To do this, we evaluate $s> b-1$\footnote[2]{$s < 0$ isn't evaluated because $s$ can never be less than 0.}.
 This is equivalent to $s\geq b$.
 Filling in the previously defined formula for $s$, we arrive at $$p\Mod(a + b) \geq b$$
